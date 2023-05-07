@@ -66,6 +66,7 @@ main{
 
 }
 .order-detail{
+    width: 110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,6 +84,7 @@ main{
     border-radius: 50%;
     display:grid;
     place-items: center;
+    cursor: pointer;
 }
 .ordericon::after{
     font-family: 'Inter', sans-serif;
