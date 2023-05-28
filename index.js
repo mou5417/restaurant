@@ -10,11 +10,22 @@ document.addEventListener("click",function(e){
        
         if(item.id ==test){
           let orderName=menuArray[test].name.toLowerCase()
-        document.getElementById(orderName).textContent++;
+        document.getElementById(orderName).textContent>=0?document.getElementById(orderName).textContent ++ : document.getElementById(orderName).textContent =0
+       
         }
     })
-    }
+    } else if (e.target.className==="cancel-ordericon"){
+    menuArray.forEach(function(item){
+      if (item.id ==test){
+        let orderName=menuArray[test].name.toLowerCase()
+        document.getElementById(orderName).textContent >0 ? document.getElementById(orderName).textContent--: document.getElementById(orderName).textContent =0
+      
+      
+      }
     })
+      }
+    }
+    )
 function render() {
   let itemtext = "";
   menuArray.forEach(function (item) {
@@ -31,11 +42,14 @@ function render() {
     ${item.ingredients}
     </div>
     <div class="price" id="price">
-    ${item.price}
+    $${item.price}
     </div> 
 </div> 
 </div>
 <div class="order-detail">
+<div class="cancel-ordericon" data-item="${id}">
+      
+</div>
   <div class="order-amount" id="${nametolower}" data-item="">
   0
   </div>
