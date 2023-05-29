@@ -48,7 +48,7 @@ main{
 .item{
     display: flex;
     width: 340px;
-    padding: 2.5rem;
+    padding: 2rem;
 }
 .item-detail{
     margin-left: 2rem;
@@ -80,7 +80,7 @@ main{
 .cancel-ordericon{
     position: relative;
     border: 1px solid  hsla(0, 0%, 87%, 1);
-     width:50px ;
+    width:50px ;
     height: 50px;
     border-radius: 50%;
     display:grid;
@@ -98,7 +98,7 @@ main{
 .ordericon{
     position: relative;
     border: 1px solid  hsla(0, 0%, 87%, 1);
-     width:50px ;
+    width:50px ;
     height: 50px;
     border-radius: 50%;
     display:grid;
@@ -116,4 +116,12 @@ main{
 .item-img{
     width: 78px;
     height: 89px;
+}
+.total-price{
+    width: auto;
+    font-size: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: end;
+    padding-inline: 1rem; 
 }

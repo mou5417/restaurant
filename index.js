@@ -1,25 +1,34 @@
 import { menuArray } from "./data.js";
 const menu = document.querySelector("main");
+let totalprice =0 
 document.addEventListener("click",function(e){
   
-     let test=e.target.dataset.item
+     let orderItem=e.target.dataset.item
+     let totalPrice = document.querySelector("#total-price")
+     let perItemPrice = menuArray[orderItem].price
     if (e.target.className==="ordericon")
     {
       menuArray.forEach(function(item)
       {
        
-        if(item.id ==test){
-          let orderName=menuArray[test].name.toLowerCase()
+        if(item.id ==orderItem){
+          let orderName=menuArray[orderItem].name.toLowerCase()
         document.getElementById(orderName).textContent>=0?document.getElementById(orderName).textContent ++ : document.getElementById(orderName).textContent =0
-       
+        let orderAmount = document.getElementById(orderName).textContent
+       totalprice +=orderAmount*perItemPrice
+        totalPrice.textContent=(totalprice)
         }
     })
     } else if (e.target.className==="cancel-ordericon"){
     menuArray.forEach(function(item){
-      if (item.id ==test){
-        let orderName=menuArray[test].name.toLowerCase()
+      if (item.id ==orderItem){
+        let orderName=menuArray[orderItem].name.toLowerCase()
+        let orderAmount = document.getElementById(orderName).textContent
         document.getElementById(orderName).textContent >0 ? document.getElementById(orderName).textContent--: document.getElementById(orderName).textContent =0
-      
+        totalprice -=orderAmount*perItemPrice 
+        console.log(orderAmount)
+        
+         totalPrice.textContent=(totalprice)
       
       }
     })
