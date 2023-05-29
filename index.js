@@ -42,8 +42,8 @@ function render() {
     let id=item.id
     itemtext += ` <div class="item-outer"> 
 <div class="item"> 
- <img class="item-img" src="./img/${nametolower}.png" alt="">
- <div class="item-detail">
+  <img class="item-img" src="./img/${nametolower}.png" alt="">
+  <div class="item-detail">
     <div class="item-name"id="item-name">
         ${item.name}
     </div>
