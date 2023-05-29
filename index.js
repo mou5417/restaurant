@@ -26,7 +26,7 @@ document.addEventListener("click",function(e){
         let orderAmount = document.getElementById(orderName).textContent
         document.getElementById(orderName).textContent >0 ? document.getElementById(orderName).textContent--: document.getElementById(orderName).textContent =0
         totalprice -=orderAmount*perItemPrice 
-        console.log(orderAmount)
+   
         
          totalPrice.textContent=(totalprice)
       
