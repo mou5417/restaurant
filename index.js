@@ -1,10 +1,11 @@
 import { menuArray } from "./data.js";
 const menu = document.querySelector("main");
-let totalprice =0 
+let allAddPaid = []
 document.addEventListener("click",function(e){
-  
+  let pricePaid =0
      let orderItem=e.target.dataset.item
      let totalPrice = document.querySelector("#total-price")
+     
      let perItemPrice = menuArray[orderItem].price
     if (e.target.className==="ordericon")
     {
@@ -13,22 +14,24 @@ document.addEventListener("click",function(e){
        
         if(item.id ==orderItem){
           let orderName=menuArray[orderItem].name.toLowerCase()
+        
         document.getElementById(orderName).textContent>=0?document.getElementById(orderName).textContent ++ : document.getElementById(orderName).textContent =0
         let orderAmount = document.getElementById(orderName).textContent
-       totalprice +=orderAmount*perItemPrice
-        totalPrice.textContent=(totalprice)
+       pricePaid =orderAmount*perItemPrice
+       allAddPaid[orderItem]=pricePaid
+        totalPrice.textContent=allAddPaid.reduce((accumnulator,currentValue) => accumnulator+currentValue)
         }
     })
     } else if (e.target.className==="cancel-ordericon"){
-    menuArray.forEach(function(item){
-      if (item.id ==orderItem){
-        let orderName=menuArray[orderItem].name.toLowerCase()
-        let orderAmount = document.getElementById(orderName).textContent
+        menuArray.forEach(function(item){
+        if (item.id ==orderItem){
+        let orderName=menuArray[orderItem].name.toLowerCase() 
         document.getElementById(orderName).textContent >0 ? document.getElementById(orderName).textContent--: document.getElementById(orderName).textContent =0
-        totalprice -=orderAmount*perItemPrice 
-   
-        
-         totalPrice.textContent=(totalprice)
+        let orderAmount = document.getElementById(orderName).textContent
+        pricePaid =orderAmount*perItemPrice
+       
+        allAddPaid[orderItem]=pricePaid
+        totalPrice.textContent=allAddPaid.reduce((accumnulator,currentValue) => accumnulator+currentValue)
       
       }
     })
